@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @Service
 public class NewsServiceImpl implements NewsService {
+
     @Autowired
     private NewsRepository newsRepository;
 
@@ -50,6 +51,5 @@ public class NewsServiceImpl implements NewsService {
             newsRepository.save(entity);
             return ResponseEntity.ok().build();
         }
-
     }
 }
