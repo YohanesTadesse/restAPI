@@ -1,5 +1,7 @@
 package restApi.chewata.model;
 
+import lombok.Setter;
+
 import java.util.Date;
 import java.util.Objects;
 

@@ -26,7 +26,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class News {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     @Column(name = "title")
     private String title;
@@ -49,7 +49,8 @@ public class News {
 //    @ToString.Exclude
 //    @EqualsAndHashCode.Exclude private Author author;
 
-    public News(String title, String image, String fileName, Long authorId, Date createdDate, Date lastUpdatedDate) {
+    public News(final Long id, String title, String image, String fileName, Long authorId, Date createdDate, Date lastUpdatedDate) {
+        this.id = id;
         this.title = title;
         this.image = image;
         this.fileName = fileName;

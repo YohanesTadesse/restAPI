@@ -10,17 +10,22 @@ public class NewsAdaptor {
 
     private static final Date now = new Date();
     public static List<News> adapt(final List<restApi.chewata.repository.entity.News> entities) {
-        return entities.stream().map(entity -> new News(entity.getId(),
+        return entities.stream().map(NewsAdaptor::adapt).collect(Collectors.toList());
+    }
+
+    public static News adapt(final restApi.chewata.repository.entity.News entity) {
+       return new News(
+               entity.getId(),
                 entity.getTitle(),
                 entity.getImage(),
                 entity.getFileName(),
                 entity.getAuthorId(),
                 entity.getCreatedDate(),
-                entity.getLastUpdatedDate()))
-                .collect(Collectors.toList());
+                entity.getLastUpdatedDate());
     }
     public static restApi.chewata.repository.entity.News adapt(final News model) {
         return new restApi.chewata.repository.entity.News(
+                model.getId(),
                 model.getTitle(),
                 model.getImage(),
                 model.getFileName(),
